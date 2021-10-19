@@ -1,10 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { withPendo } from 'rn-pendo-sdk';
+import { NavigationContainer } from '@react-navigation/native';
 
 import List from './components/List';
 
@@ -26,9 +23,12 @@ const privateStyles = StyleSheet.create({
   },
 });
 
-const App: () => React$Node = () => {
+export default withPendo(props => {
   return (
-    <>
+    <NavigationContainer
+      onStateChange={props.onStateChange}
+      onReady={props.onReady}
+    >
       <SafeAreaView style={privateStyles.appStyle}>
         <View style={privateStyles.titleContainer}>
           <View style={privateStyles.flex}>
@@ -37,8 +37,6 @@ const App: () => React$Node = () => {
         </View>
         <List />
       </SafeAreaView>
-    </>
+    </NavigationContainer>
   );
-};
-
-export default App;
+});

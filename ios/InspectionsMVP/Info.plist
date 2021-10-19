@@ -53,5 +53,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pendo-a02463f1</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>pendo-pairing</string>
+		</dict>
+	</array>
 </dict>
 </plist>

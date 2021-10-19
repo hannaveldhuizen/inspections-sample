@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "PendoManager.h";
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -53,6 +54,18 @@ static void InitializeFlipper(UIApplication *application) {
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    if ([[url scheme] containsString:@"pendo"]) {
+        [[PendoManager sharedManager] initWithUrl:url];
+        return YES;
+    }
+    //  your code here ...
+    return YES;
 }
 
 @end
