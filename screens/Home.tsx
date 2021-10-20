@@ -1,15 +1,11 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import List from '../components/List';
 import ListItem from '../components/ListItem';
 import SafeView from '../components/SafeView';
 
 const privateStyles = StyleSheet.create({
-  appStyle: {
-    backgroundColor: '#EDF0F2',
-    flexGrow: 1,
-  },
   flex: {
     flex: 1,
   },
@@ -91,7 +87,7 @@ export default ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={privateStyles.appStyle}>
+    <SafeView>
       <View style={privateStyles.titleContainer}>
         <View style={privateStyles.flex}>
           <Text style={privateStyles.fontSize28}>Home</Text>
@@ -101,6 +97,6 @@ export default ({ navigation }) => {
         data={data}
         renderItem={renderItem}
       />
-    </SafeAreaView>
+    </SafeView>
   );
 };

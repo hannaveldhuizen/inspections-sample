@@ -1,13 +1,10 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import List from '../components/List';
+import SafeView from '../components/SafeView';
 
 const privateStyles = StyleSheet.create({
-  appStyle: {
-    backgroundColor: '#EDF0F2',
-    flexGrow: 1,
-  },
   flex: {
     flex: 1,
   },
@@ -36,7 +33,7 @@ const privateStyles = StyleSheet.create({
 
 const Row = ({ item }) => {
   return (
-    <TouchableOpacity style={privateStyles.rowContainer}>
+    <TouchableOpacity style={privateStyles.rowContainer} onPress={() => {}}>
       <View style={privateStyles.labelContainer}>
         <Text style={privateStyles.text}>{item.text}</Text>
       </View>
@@ -62,7 +59,14 @@ export default ({ route }) => {
     { id: 11, text: 'Scroll' },
     { id: 12, text: 'Scroll' },
     { id: 13, text: 'Scroll' },
-    { id: 14, text: '!' },
+    { id: 14, text: 'Scroll' },
+    { id: 15, text: 'Scroll' },
+    { id: 16, text: 'Scroll' },
+    { id: 17, text: 'Scroll' },
+    { id: 18, text: '!' },
+    { id: 19, text: '!' },
+    { id: 20, text: '!' },
+    { id: 21, text: '!' },
   ];
 
   const renderItem = ({ item }) => {
@@ -72,7 +76,7 @@ export default ({ route }) => {
   };
 
   return (
-    <SafeAreaView style={privateStyles.appStyle}>
+    <SafeView>
       <View style={privateStyles.titleContainer}>
         <View style={privateStyles.flex}>
           <Text style={privateStyles.fontSize28}>{title}</Text>
@@ -82,6 +86,6 @@ export default ({ route }) => {
         data={data}
         renderItem={renderItem}
       />
-    </SafeAreaView>
+    </SafeView>
   );
 };
