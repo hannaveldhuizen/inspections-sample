@@ -4,7 +4,11 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import { ListItem } from './ListItem';
+
+type Props = Readonly<{
+  data?: Array<any> | [];
+  renderItem: any;
+}>;
 
 const privateStyles = StyleSheet.create({
   listContainerStyle: {
@@ -25,57 +29,15 @@ const RowSeparator = () => {
   return <View style={privateStyles.rowSeparator} />;
 };
 
-const InspectionRow = ({ inspection }) => (
-  <ListItem
-    name={inspection.name}
-    property={inspection.property}
-    inspectedOn={inspection.inspectedOn}
-    onPress={() => {}}
-  />
-);
-
-export default () => {
-  const data = [
-    {
-      id: 1,
-      name: 'Move-in Inspection',
-      property: '12 Elm St Unit #1',
-      inspectedOn: '10/12/21',
-    },
-    {
-      id: 2,
-      name: 'Property Inspection',
-      property: '4060 Lee Ave',
-      inspectedOn: '09/01/21',
-    },
-    {
-      id: 3,
-      name: 'Move-out Inspection',
-      property: '4280 Lamont St',
-      inspectedOn: '06/22/21',
-    },
-    {
-      id: 4,
-      name: 'Annual Inspection',
-      property: '5060 Grand Ave',
-      inspectedOn: '02/04/21',
-    },
-  ];
-
-  const renderInspection = ({ item: inspection }) => {
-    return (
-      <InspectionRow inspection={inspection} />
-    );
-  };
-
+export default ({ data, renderItem }: Props) => {
   return (
     <View style={privateStyles.listContainerStyle}>
       <FlatList
         bounces
         keyboardShouldPersistTaps="handled"
         data={data}
-        renderItem={renderInspection}
-        keyExtractor={(item) => `inspection_${item.id}`}
+        renderItem={renderItem}
+        keyExtractor={(item) => `item_${item.id}`}
         ItemSeparatorComponent={() => <RowSeparator />}
       />
     </View>

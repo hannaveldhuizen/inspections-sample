@@ -2,6 +2,7 @@
  * @format
  */
 
+import 'react-native-gesture-handler';
 import { AppRegistry } from 'react-native';
 import { PendoSDK, NavigationLibraryType } from 'rn-pendo-sdk';
 import App from './App';

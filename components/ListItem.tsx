@@ -46,7 +46,7 @@ const privateStyles = StyleSheet.create({
   },
 });
 
-export const ListItem = ({
+export default ({
   name,
   property,
   inspectedOn,
