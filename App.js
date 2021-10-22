@@ -4,12 +4,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { withPendo } from 'rn-pendo-sdk';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from './screens/Home';
-import Details from './screens/Details';
-
-const Stack = createStackNavigator();
+import AppNavigator from './screens/AppNavigator';
 
 const theme = {
   ...DefaultTheme,
@@ -39,10 +35,7 @@ export default withPendo(props => {
           onStateChange={props.onStateChange}
           onReady={props.onReady}
         >
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Details" component={Details} />
-          </Stack.Navigator>
+          <AppNavigator />
         </NavigationContainer>
       </GestureHandlerRootView>
     </SafeAreaProvider>
