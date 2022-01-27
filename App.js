@@ -1,8 +1,8 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import React from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet } from 'react-native';
-import { withPendo } from 'rn-pendo-sdk';
+import { withPendo } from './pendo/wrappers';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import AppNavigator from './screens/AppNavigator';
@@ -28,12 +28,25 @@ const privateStyles = StyleSheet.create({
 });
 
 export default withPendo(props => {
+  const navigationRef = useRef();
+
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={privateStyles.navContainer}>
         <NavigationContainer
-          onStateChange={props.onStateChange}
-          onReady={props.onReady}
+          ref={navigationRef}
+          onStateChange={() => {
+            if (props.onStateChange) {
+              const state = navigationRef.current.getRootState();
+              props?.onStateChange(state);
+            }
+          }}
+          onReady={() => {
+            if (props.onStateChange) {
+              const state = navigationRef.current.getRootState();
+              props?.onStateChange(state);
+            }
+          }}
         >
           <AppNavigator />
         </NavigationContainer>

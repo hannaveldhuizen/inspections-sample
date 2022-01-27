@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "PendoManager.h";
+#import "PendoManager.h"
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>

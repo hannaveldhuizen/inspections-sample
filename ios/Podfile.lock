@@ -344,7 +344,7 @@ PODS:
     - React
   - RNGestureHandler (1.9.0):
     - React-Core
-  - RNPendoSdk (2.12.1):
+  - RNPendoSdk (2.12.2):
     - PendoSDKLib (~> 2.12.0)
     - React
   - RNReanimated (1.13.3):
@@ -555,7 +555,7 @@ SPEC CHECKSUMS:
   ReactCommon: eb059748e842a1a86025ebbd4ac9d99e74492f88
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
-  RNPendoSdk: e67e256d40cc73ae7e8595c83e5b5616076c56b7
+  RNPendoSdk: 60ace58c001cab1fc6637aeff35b557dd18ce8a5
   RNReanimated: 514a11da3a2bcc6c3dfd9de32b38e2b9bf101926
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
   Yoga: c11abbf5809216c91fcd62f5571078b83d9b6720
